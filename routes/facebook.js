@@ -43,13 +43,18 @@ router.get('/callback', function(req, res, next) {
     res.redirect("http://localhost:4000");
 });
 
-router.get('/userBirthday', function(req, res, next) {
-    request.get('https://graph.facebook.com/v3.2/me?fields=birthday?access_token='+access_token ,function(err,response,body){
-      if(res.statusCode !== 200 ){
-        res.send(err);
-      } 
-      res.send(body); 
-    });
+router.get('/userBirthday', async function(req, res, next) {
+    try{
+         await request.get('https://graph.facebook.com/v3.2/me?fields=birthday?access_token='+access_token ,function(err,response,body){
+            if(err ){
+                res.send(err);
+            } 
+            res.send(body); 
+         });
+    }
+    catch(err){
+        res.send(err)
+    }
 });
   
 module.exports = router;
