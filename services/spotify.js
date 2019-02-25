@@ -2,12 +2,12 @@ var request = require('request');
 var querystring = require('querystring')
 
 let access_token;
-let  redirect_uri = 'http://localhost:4000/spotify/callback';
+let  redirect_uri = '[your redirect_uri ]';
 
 const spotifyConfig = {
-    clientId: '8cb87dc670244a6c80af175d5ecf2b1c', 
-    clientSecret: '0791e327394143bf9a9249f655936d8b', 
-    redirect: 'http://localhost:4000/spotify/callback' 
+    clientId: '[your clientId]', 
+    clientSecret: '[your clientSecret]', 
+    redirect: '[your redirect_uri]' 
 };
 
 class SpotifyService{
