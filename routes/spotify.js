@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var spotifyService = require('../services/spotify');
+const express = require('express');
+const router = express.Router();
+const spotifyService = require('../services/spotify');
 
 let uri = 'http://localhost:4000'
 
@@ -17,9 +17,9 @@ router.get('/callback', async function(req, res, next) {
 
 router.get('/username', async function(req, res, next) {
   try{
-    let user = await spotifyService.getUserName();
-    user = user + "  " + "its me";
-    res.send(user);
+    let userName = await spotifyService.getUserName();
+    userName = userName + "  " + "its me";
+    res.send(userName);
   }
   catch(err){
     res.status("500").send(err);
