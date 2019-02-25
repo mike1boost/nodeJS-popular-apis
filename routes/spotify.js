@@ -19,7 +19,7 @@ router.get('/username', async function(req, res, next) {
   try{
     let userName = await spotifyService.getUserName();
     userName = userName + "  " + "its me";
-    res.send(userName);
+    res.status("200").send(userName);
   }
   catch(err){
     res.status("500").send(err);
@@ -29,7 +29,7 @@ router.get('/username', async function(req, res, next) {
 router.get('/search', async function(req, res, next) {
   try{
     let artist = await spotifyService.searchArtist();
-    res.send(artist);
+    res.status("200").send(artist);
   }
   catch(err){
     res.status("500").send(err);
